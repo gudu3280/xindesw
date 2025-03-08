@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>今天吃什么</title>
+    <style>
+        /* 原有CSS样式保持不变 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segue UI', Roboto, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f7;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+        }
+        #result {
+            font-size: 26px;
+            color: #ff4757;
+            margin: 25px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            word-wrap: break-word; /* 新增：长文本自动换行 */
+        }
+        button {
+            padding: 12px 35px;
+            font-size: 18px;
+            background: #2ed573;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>今天吃什么？</h2>
+        <div id="result">点击按钮开始</div>
+        <button onclick="randomFood()">随机选择</button>
+    </div>
+
+    <script>
+        const foodList = [
+            "🍚 大盘肉末盖面",
+            "🍖 蜜汁叉烧饭",
+            "🔥 干锅小炒肉饭",
+            "🦆 脆皮烧鸭饭",
+            "🥩 扣肉套餐（+配菜）",
+            "🍜 超大碗猪肉汤粉（肉丸+肉卷）",
+            "🍆 红烧茄子盖浇饭",
+            "🌶️ 李国福麻辣烫",
+            "🍗 青椒炒翅尖+荷包蛋套餐",
+            "🥦 两素一肉套餐",
+            "🐮 水煮牛肉汤粉面",
+            "🔪 粤香烧腊",
+            "🍲 花姐砂锅粉",
+            "🐷 潮汕猪杂汤饭",
+            "🍛 王者脆皮鸡烤肉饭",
+            "🚌 便利店关东煮",
+            "🍱 自选快餐（12元三菜）",
+            "🍢 特色炸串（小心上火）",
+            "🍚 台湾卤肉饭团",
+            "🐟 湘菜小炒-酸菜鱼",
+            "🍖 大块牛肉饭（管饱！）",
+            "🍱 扒饭之家-鸡腿饭",
+            "🍜 港仔车仔面（加鱼蛋）"
+        ];
+
+        function randomFood() {
+            const result = document.getElementById("result");
+            // 动画效果
+            result.style.transform = "scale(0.9)";
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * foodList.length);
+                result.textContent = foodList[randomIndex];
+                result.style.transform = "scale(1)";
+            }, 200);
+        }
+    </script>
+</body>
+</html>
